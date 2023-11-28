@@ -2,19 +2,19 @@
 int In1 = 4;
 int In2 = 5;
 int ENA = 2;
-int SPEED_A = 255; // set to 255
+int SPEED_A = 255; // 255 is max
 
 // Motor B
 int In3 = 6;
 int In4 = 7;
 int ENB = 3;
-int SPEED_B = 255; // set to 150
+int SPEED_B = 255; 
 
 // Motor C (Winch)
 int In5 = 9;
 int In6 = 10;
 int ENC = 8; 
-int SPEED_C = 255; // set to 150
+int SPEED_C = 255; 
 
 void setup() {
   pinMode(In1, OUTPUT);
@@ -37,13 +37,13 @@ void loop() {
     char command = Serial.read();  // Read the incoming byte
 
     switch (command) {
-      case 'd':  // Clockwise Motor A (rotate one way)
+      case 'd':  // Rotate clockwise
         stopMotorA();
         stopMotorB();
         rotateClockwise();
         break;
 
-      case 's':  // Anti-clockwise Motor A
+      case 's':  // Rotate anticlockwise
         stopMotorA();
         stopMotorB();
         rotateAnticlockwise();
