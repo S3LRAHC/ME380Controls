@@ -1,12 +1,15 @@
 Keyboard Controls
 
-d - rotate one way
-s - rotate other way
+d - rotate right motor backward
+s - rotate right motor forward
 
-i - move forward
-k - move backward
+c - rotate left motor backward
+x - rotate left motor forward
 
-u - lower winch
-y - raise winch
+i - move both motors forward
+k - move both motors backward
+
+u - raise winch
+y - lower winch
 
 o - stop all motors
