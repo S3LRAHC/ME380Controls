@@ -1,10 +1,7 @@
 Keyboard Controls
 
-d - rotate right motor backward
-s - rotate right motor forward
-
-c - rotate left motor backward
-x - rotate left motor forward
+d - rotate clockwise
+s - rotate counterclockwise
 
 i - move both motors forward
 k - move both motors backward
