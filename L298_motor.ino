@@ -39,12 +39,14 @@ void loop() {
     switch (command) {
       case 'd':  // Clockwise Motor A (rotate one way)
         stopMotorA();
-        moveClockwiseMotorA();
+        stopMotorB();
+        rotateClockwise();
         break;
 
       case 's':  // Anti-clockwise Motor A
         stopMotorA();
-        moveAntiClockwiseMotorA();
+        stopMotorB();
+        rotateAnticlockwise();
         break;
 
       case 'a':  // Stop Motor A
@@ -265,6 +267,56 @@ void moveAntiClockwiseMotorC() {
       analogWrite(ENC, speed);
       Serial.print("Motor C Anti-Clockwise Speed: ");
       Serial.println(speed);
+  }
+}
+
+void rotateClockwise() {
+  for (int speed = 0; speed <= SPEED_A; speed++) {
+    // Check if new serial data is available
+    if (Serial.available()) {
+      char newCommand = Serial.read(); // Read the new command
+      if (newCommand == 'o') {
+        stopMotorA();
+        stopMotorB();
+        return; // Exit the function immediately
+      }
+    }
+    
+    digitalWrite(In1, HIGH);
+    digitalWrite(In2, LOW);
+    analogWrite(ENA, speed);
+
+    digitalWrite(In3, HIGH);
+    digitalWrite(In4, LOW);
+    analogWrite(ENB, speed);
+
+    Serial.print("Motors A & B Anti-Clockwise Speed: ");
+    Serial.println(speed);
+  }
+}
+
+void rotateAnticlockwise() {
+  for (int speed = 0; speed <= SPEED_A; speed++) {
+    // Check if new serial data is available
+    if (Serial.available()) {
+      char newCommand = Serial.read(); // Read the new command
+      if (newCommand == 'o') {
+        stopMotorA();
+        stopMotorB();
+        return; // Exit the function immediately
+      }
+    }
+    
+    digitalWrite(In1, LOW);
+    digitalWrite(In2, HIGH);
+    analogWrite(ENA, speed);
+
+    digitalWrite(In3, LOW);
+    digitalWrite(In4, HIGH);
+    analogWrite(ENB, speed);
+
+    Serial.print("Motors A & B Anti-Clockwise Speed: ");
+    Serial.println(speed);
   }
 }
 
