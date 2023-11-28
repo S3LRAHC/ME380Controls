@@ -1,0 +1,12 @@
+Keyboard Controls
+
+d - rotate one way
+s - rotate other way
+
+i - move forward
+k - move backward
+
+u - lower winch
+y - raise winch
+
+o - stop all motors
