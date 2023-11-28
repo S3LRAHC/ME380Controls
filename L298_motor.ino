@@ -44,7 +44,6 @@ void loop() {
 
       case 's':  // Anti-clockwise Motor A
         stopMotorA();
-        // 500ms delay
         moveAntiClockwiseMotorA();
         break;
 
